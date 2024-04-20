@@ -3,7 +3,7 @@ import 'package:second_task/core/utils/usecases/no_params.dart';
 import 'package:second_task/modules/characters/data/models/m_character.dart';
 import 'package:second_task/modules/characters/domain/repos/repo_characters.dart';
 
-class UsecaseGetAllCharacters extends BaseUseCase<Future<List<MCharacter>>, NoParam> {
+class UsecaseGetAllCharacters extends BaseUseCase<Future<List<MCharacter>?>, NoParam> {
   final RepoCharacters repo;
 
   UsecaseGetAllCharacters({
@@ -11,5 +11,5 @@ class UsecaseGetAllCharacters extends BaseUseCase<Future<List<MCharacter>>, NoPa
   });
 
   @override
-  Future<List<MCharacter>> call(NoParam input) => repo.getAllCharacters();
+  Future<List<MCharacter>?> call(NoParam input) => repo.getAllCharacters();
 }

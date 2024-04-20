@@ -16,7 +16,7 @@ class RepoCharactersImp implements RepoCharacters {
   });
 
   @override
-  Future<List<MCharacter>> getAllCharacters() async {
+  Future<List<MCharacter>?> getAllCharacters() async {
     try {
       final List<MCharacter>? characters = await remoteCharacters.getAllCharacters();
       if (characters != null) {
@@ -24,7 +24,7 @@ class RepoCharactersImp implements RepoCharacters {
         await localCharacters.setAll(characters);
         return characters;
       } else {
-        return localCharacters.getAll() ?? [];
+        return null;
       }
     } catch (e, stackTrace) {
       ErrorHelper.printDebugError(
@@ -33,18 +33,18 @@ class RepoCharactersImp implements RepoCharacters {
         stackTrace: stackTrace.limitStackTracePrint(),
         level: ErrorLevels.CRITICAL,
       );
-      return [];
+      return null;
     }
   }
 
   @override
-  Future<MCharacter> getCharacterDetails(String id) async {
+  Future<MCharacter?> getCharacterDetails(String id) async {
     try {
       final MCharacter? character = await remoteCharacters.getCharacterDetails(id);
       if (character != null) {
         return character;
       } else {
-        return localCharacters.getAll()!.firstWhere((element) => element.id == id);
+        return null;
       }
     } catch (e, stackTrace) {
       ErrorHelper.printDebugError(
@@ -53,7 +53,7 @@ class RepoCharactersImp implements RepoCharacters {
         stackTrace: stackTrace.limitStackTracePrint(),
         level: ErrorLevels.CRITICAL,
       );
-      return localCharacters.getAll()!.firstWhere((element) => element.id == id);
+      return null;
     }
   }
 }

@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:second_task/core/assets/assets.gen.dart';
 import 'package:second_task/core/extension/color_extension.dart';
 import 'package:second_task/core/extension/context_extension.dart';
+import 'package:second_task/core/extension/text_theme_extension.dart';
 import 'package:second_task/core/widgets/w_app_loader.dart';
 
 class WSharedScaffold extends StatefulWidget {
@@ -51,7 +52,7 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
       onTap: () => FocusScope.of(context).focusedChild?.unfocus(),
       child: Scaffold(
         resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
-        backgroundColor: context.theme.colorScheme.primaryColor300,
+        backgroundColor: context.theme.colorScheme.naturalColor900,
         bottomSheet: widget.bottomSheet != null
             ? Container(
                 height: widget.bottomSheetHeight ?? 82.h,
@@ -71,7 +72,7 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
             Container(
               height: 250.h,
               decoration: BoxDecoration(
-                color: context.theme.colorScheme.primaryColor400,
+                color: context.theme.colorScheme.primaryColor600,
               ),
             ),
 
@@ -87,21 +88,21 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
                     bottom: 16.h,
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       (widget.withBackButton)
                           ? InkWell(
                               onTap: widget.onBackButtonTap ?? () => Modular.to.pop(),
                               child: CircleAvatar(
-                                radius: 18.r,
-                                backgroundColor: context.theme.colorScheme.naturalColor0,
+                                radius: 20.r,
+                                backgroundColor: context.theme.colorScheme.naturalColor700,
                                 child: SvgPicture.asset(
-                                  width: 7.w,
-                                  height: 13.h,
+                                  width: 22.w,
+                                  height: 22.h,
                                   Assets.icons.backArrow.path,
                                   colorFilter: ColorFilter.mode(
-                                    context.theme.colorScheme.naturalColor600,
+                                    context.theme.colorScheme.naturalColor0,
                                     BlendMode.srcIn,
                                   ),
                                 ),
@@ -111,13 +112,20 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
                               width: 36.w,
                               height: 36.h,
                             ),
-                      Text(
-                        widget.title ?? '',
-                        style: context.textTheme.titleLarge?.copyWith(
-                          color: context.theme.colorScheme.naturalColor0,
+                      if (widget.title != null)
+                        SizedBox(
+                          width: 250.w,
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              widget.title ?? '',
+                              style: context.textTheme.titleMedium_18.copyWith(
+                                color: context.theme.colorScheme.naturalColor0,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
                         ),
-                        textAlign: TextAlign.center,
-                      ),
                     ],
                   ),
                 ),
@@ -137,7 +145,7 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
                               : 24.h,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: context.theme.colorScheme.naturalColor700,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40.r),
                         topRight: Radius.circular(40.r),

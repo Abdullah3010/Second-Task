@@ -13,7 +13,9 @@ void main() async {
   Bloc.observer = AppBlocObserver();
   await ScreenUtil.ensureScreenSize();
 
-  Hive.registerAdapter(MCharacterAdapter());
+  Hive
+    ..registerAdapter(MCharacterAdapter())
+    ..registerAdapter(MWandAdapter());
 
   await Hive.initFlutter();
 

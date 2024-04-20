@@ -19,7 +19,7 @@ class MCharacter {
   @HiveField(6)
   DateTime? dateOfBirth;
   @HiveField(7)
-  int? yearOfBirth;
+  String? yearOfBirth;
   @HiveField(8)
   bool? wizard;
   @HiveField(9)
@@ -76,8 +76,8 @@ class MCharacter {
       species: json?['species'] ?? '',
       gender: json?['gender'] ?? '',
       house: json?['house'] ?? '',
-      dateOfBirth: DateTime.tryParse(json?['dateOfBirth']),
-      yearOfBirth: json?['yearOfBirth'] ?? 0,
+      dateOfBirth: DateTime.tryParse(json?['dateOfBirth'].toString() ?? ''),
+      yearOfBirth: json?['yearOfBirth']?.toString() ?? '',
       wizard: json?['wizard'] ?? false,
       ancestry: json?['ancestry'] ?? '',
       eyeColour: json?['eyeColour'] ?? '',
@@ -113,7 +113,7 @@ class MWand {
     return MWand(
       wood: json?['wood'] ?? '',
       core: json?['core'] ?? '',
-      length: json?['length'] ?? 0.0,
+      length: double.tryParse(json?['length']?.toString() ?? '') ?? 0.0,
     );
   }
 }

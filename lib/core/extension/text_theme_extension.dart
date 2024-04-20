@@ -7,12 +7,14 @@ extension TextStyleExtension on TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: 28.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get h1SemiBold_18 => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 18.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get h1MediumItalic_24 => TextStyle(
@@ -20,6 +22,7 @@ extension TextStyleExtension on TextTheme {
         fontSize: 24.sp,
         fontStyle: FontStyle.italic,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   /// [Titles]
@@ -27,30 +30,35 @@ extension TextStyleExtension on TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: 18.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get titleMedium_28 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 28.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get titleMedium_18 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 18.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get titleMedium_16 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 16.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get titleRegular_18 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 18.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   /// [Body]
@@ -58,6 +66,7 @@ extension TextStyleExtension on TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: 16.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get bodyMedium_14 => TextStyle(
@@ -65,12 +74,14 @@ extension TextStyleExtension on TextTheme {
         fontSize: 14.sp,
         fontFamily: 'Poppins',
         letterSpacing: -0.30.w,
+        color: Colors.white,
       );
 
   TextStyle get bodyRegular_16 => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: 16.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get bodyRegular_14 => TextStyle(
@@ -78,6 +89,7 @@ extension TextStyleExtension on TextTheme {
         fontSize: 14.sp,
         letterSpacing: -0.30.w,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   /// [Button]
@@ -85,6 +97,7 @@ extension TextStyleExtension on TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: 16.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get buttonMedium_14 => TextStyle(
@@ -92,12 +105,14 @@ extension TextStyleExtension on TextTheme {
         fontSize: 14.sp,
         fontFamily: 'Poppins',
         letterSpacing: -0.30.w,
+        color: Colors.white,
       );
 
   TextStyle get buttonMedium_12 => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 12.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   /// [Text line]
@@ -106,6 +121,7 @@ extension TextStyleExtension on TextTheme {
         decoration: TextDecoration.underline,
         fontSize: 16.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 
   TextStyle get textLineRegular_14 => TextStyle(
@@ -113,5 +129,6 @@ extension TextStyleExtension on TextTheme {
         decoration: TextDecoration.underline,
         fontSize: 14.sp,
         fontFamily: 'Poppins',
+        color: Colors.white,
       );
 }

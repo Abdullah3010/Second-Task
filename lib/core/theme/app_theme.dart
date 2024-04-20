@@ -24,6 +24,7 @@ class AppTheme {
                 fontWeight: FontWeight.w700,
                 fontSize: 18.sp,
                 fontFamily: 'Poppins',
+                color: Colors.white,
               ),
             ),
             backgroundColor: MaterialStateProperty.all(
@@ -52,6 +53,7 @@ class AppTheme {
               TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 18.sp,
+                color: Colors.white,
               ),
             ),
           ),

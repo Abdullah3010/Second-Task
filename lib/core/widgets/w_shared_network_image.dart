@@ -22,7 +22,7 @@ class WSharedNetworkImage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: context.theme.colorScheme.naturalColor40,
-        borderRadius: BorderRadius.circular(5.r),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       clipBehavior: Clip.antiAlias,
       child: CachedNetworkImage(
@@ -35,13 +35,14 @@ class WSharedNetworkImage extends StatelessWidget {
           width: width ?? 75.w,
           height: height ?? 75.h,
           decoration: BoxDecoration(
-            color: context.theme.colorScheme.naturalColor40,
+            color: context.theme.colorScheme.primaryColor600,
             borderRadius: BorderRadius.circular(10.r),
           ),
           child: Center(
             child: Icon(
               Icons.error,
-              size: 30.w,
+              size: 40.w,
+              color: Colors.white,
             ),
           ),
         ),
