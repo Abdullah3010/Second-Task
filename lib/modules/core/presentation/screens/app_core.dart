@@ -8,6 +8,7 @@ import 'package:second_task/core/constants/constants.dart';
 import 'package:second_task/core/services/routes/app_modular_opserver.dart';
 import 'package:second_task/core/services/routes/routes_names.dart';
 import 'package:second_task/core/theme/app_theme.dart';
+import 'package:second_task/modules/characters/data/sources/local_data_source/box_characters.dart';
 
 class AppCore extends StatefulWidget {
   const AppCore({super.key});
@@ -21,6 +22,9 @@ class _AppCoreState extends State<AppCore> {
   void initState() {
     super.initState();
     Modular.setNavigatorKey(Constants.constValues.navigatorKey);
+    Future.wait([
+      Modular.get<BoxCharacters>().init(),
+    ]);
     try {
       PalConnection().initialize(
         domain: PalDomain.google,
@@ -41,7 +45,10 @@ class _AppCoreState extends State<AppCore> {
         },
       );
     } catch (e) {
-      //ToDo: Handel this
+      Constants.constValues.isNetworkDisconected = true;
+      Modular.to.pushNamed(
+        RoutesNames.connectionError,
+      );
     }
     Modular.to.setObservers([
       AppModularObserver(),
@@ -56,18 +63,15 @@ class _AppCoreState extends State<AppCore> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MultiBlocProvider(
-          providers: const [],
-          child: MaterialApp.router(
-            title: Constants.constValues.appName,
-            theme: AppTheme.lightTheme(),
-            debugShowCheckedModeBanner: false,
-            routeInformationParser: Modular.routeInformationParser,
-            routerDelegate: Modular.routerDelegate,
-            builder: (BuildContext context, Widget? child) {
-              return child ?? const SizedBox();
-            },
-          ),
+        return MaterialApp.router(
+          title: Constants.constValues.appName,
+          theme: AppTheme.lightTheme(),
+          debugShowCheckedModeBanner: false,
+          routeInformationParser: Modular.routeInformationParser,
+          routerDelegate: Modular.routerDelegate,
+          builder: (BuildContext context, Widget? child) {
+            return child ?? const SizedBox();
+          },
         );
       },
     );

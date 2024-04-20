@@ -1,8 +1,8 @@
 import 'package:second_task/core/utils/usecases/base_usecase.dart';
-import 'package:second_task/modules/characters/data/models/m_characters.dart';
+import 'package:second_task/modules/characters/data/models/m_character.dart';
 import 'package:second_task/modules/characters/data/repo_imp/repo_characters.dart';
 
-class UsecaseGetCharacterDetails extends BaseUseCase<Future<MCharacters>, String> {
+class UsecaseGetCharacterDetails extends BaseUseCase<Future<MCharacter>, String> {
   final RepoCharacters repo;
 
   UsecaseGetCharacterDetails({
@@ -10,5 +10,5 @@ class UsecaseGetCharacterDetails extends BaseUseCase<Future<MCharacters>, String
   });
 
   @override
-  Future<MCharacters> call(String input) => repo.getCharacterDetails(input);
+  Future<MCharacter> call(String input) => repo.getCharacterDetails(input);
 }

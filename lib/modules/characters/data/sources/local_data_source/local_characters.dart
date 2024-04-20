@@ -1,9 +1,9 @@
-import 'package:second_task/modules/characters/data/models/m_characters.dart';
+import 'package:second_task/modules/characters/data/models/m_character.dart';
 
 abstract class LocalCharacters {
   Future<void> delete();
 
-  MCharacters? get();
+  MCharacter? get();
 
-  Future<MCharacters> set(MCharacters user);
+  Future<MCharacter> set(MCharacter user);
 }

@@ -1,6 +1,6 @@
-import 'package:second_task/modules/characters/data/models/m_characters.dart';
+import 'package:second_task/modules/characters/data/models/m_character.dart';
 
 abstract class RepoCharacters {
-  Future<List<MCharacters>> getAllCharacters();
-  Future<MCharacters> getCharacterDetails(String id);
+  Future<List<MCharacter>> getAllCharacters();
+  Future<MCharacter> getCharacterDetails(String id);
 }
