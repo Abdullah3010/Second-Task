@@ -3,23 +3,25 @@ import 'package:second_task/modules/characters/data/sources/local_data_source/bo
 import 'package:second_task/modules/characters/data/sources/local_data_source/local_characters.dart';
 
 class LocalCharactersImp implements LocalCharacters {
-  final BoxCharacters boxUser;
+  final BoxCharacters boxCharacters;
 
   LocalCharactersImp({
-    required this.boxUser,
+    required this.boxCharacters,
   });
 
   @override
-  Future<void> delete() async {
-    await boxUser.box.delete(0);
+  Future<void> clear() async {
+    await boxCharacters.box.clear();
   }
 
   @override
-  MCharacter? get() => boxUser.box.get(0);
+  List<MCharacter>? getAll() {
+    return boxCharacters.box.values.toList();
+  }
 
   @override
-  Future<MCharacter> set(MCharacter user) async {
-    await boxUser.box.put(0, user);
-    return user;
+  Future<void> setAll(List<MCharacter> characters) async {
+    await boxCharacters.box
+        .putAll(<String, MCharacter>{for (var character in characters) character.id ?? '': character});
   }
 }
