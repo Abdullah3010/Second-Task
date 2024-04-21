@@ -8,7 +8,7 @@ class WAppLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Lottie.asset(
-        'assets/animations/jd_app_loder.json',
+        'assets/animations/app_loader.json',
         width: size,
         height: size,
       ),

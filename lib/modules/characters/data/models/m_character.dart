@@ -17,7 +17,7 @@ class MCharacter {
   @HiveField(5)
   String? house;
   @HiveField(6)
-  DateTime? dateOfBirth;
+  String? dateOfBirth;
   @HiveField(7)
   String? yearOfBirth;
   @HiveField(8)
@@ -76,7 +76,7 @@ class MCharacter {
       species: json?['species'] ?? '',
       gender: json?['gender'] ?? '',
       house: json?['house'] ?? '',
-      dateOfBirth: DateTime.tryParse(json?['dateOfBirth'].toString() ?? ''),
+      dateOfBirth: json?['dateOfBirth']?.toString() ?? '',
       yearOfBirth: json?['yearOfBirth']?.toString() ?? '',
       wizard: json?['wizard'] ?? false,
       ancestry: json?['ancestry'] ?? '',

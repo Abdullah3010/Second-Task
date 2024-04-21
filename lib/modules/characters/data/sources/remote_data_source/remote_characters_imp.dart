@@ -45,7 +45,7 @@ class RemoteCharactersImp implements RemoteCharacters {
         APIEndPoints.characters.getCharacter(id),
       );
       if (response.data != null) {
-        return MCharacter.fromJson(response.data);
+        return MCharacter.fromJson(response.data[0]);
       } else {
         AppAlert.error('There is no data');
       }

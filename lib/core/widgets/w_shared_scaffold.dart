@@ -22,6 +22,10 @@ class WSharedScaffold extends StatefulWidget {
     this.onBackButtonTap,
     this.bottomSheet,
     this.bottomSheetHeight,
+    this.paddingRight,
+    this.paddingLeft,
+    this.paddingTop,
+    this.paddingBottom,
   });
 
   final String? title;
@@ -34,6 +38,10 @@ class WSharedScaffold extends StatefulWidget {
   final Widget? bottomSheet;
   final Function()? onBackButtonTap;
   final double? bottomSheetHeight;
+  final double? paddingRight;
+  final double? paddingLeft;
+  final double? paddingTop;
+  final double? paddingBottom;
 
   @override
   State<WSharedScaffold> createState() => _WSharedScaffoldState();
@@ -52,7 +60,7 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
       onTap: () => FocusScope.of(context).focusedChild?.unfocus(),
       child: Scaffold(
         resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
-        backgroundColor: context.theme.colorScheme.naturalColor900,
+        backgroundColor: context.theme.colorScheme.primaryColor600,
         bottomSheet: widget.bottomSheet != null
             ? Container(
                 height: widget.bottomSheetHeight ?? 82.h,
@@ -68,14 +76,6 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
             : null,
         body: Stack(
           children: [
-            /// [BackGround Image]
-            Container(
-              height: 250.h,
-              decoration: BoxDecoration(
-                color: context.theme.colorScheme.primaryColor600,
-              ),
-            ),
-
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -112,7 +112,7 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
                               width: 36.w,
                               height: 36.h,
                             ),
-                      if (widget.title != null)
+                      if (widget.title != null && widget.title != '')
                         SizedBox(
                           width: 250.w,
                           child: FittedBox(
@@ -135,15 +135,17 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
                   child: Container(
                     width: context.width,
                     padding: EdgeInsets.only(
-                      right: 16.w,
-                      left: 16.w,
-                      top: 24.h,
-                      bottom: !widget.resizeToAvoidBottomInset && MediaQuery.of(context).viewInsets.bottom > 10
-                          ? MediaQuery.of(context).viewInsets.bottom
-                          : widget.withNavBar
-                              ? 80.h
-                              : 24.h,
+                      right: widget.paddingRight ?? 16.w,
+                      left: widget.paddingLeft ?? 16.w,
+                      top: widget.paddingTop ?? 24.h,
+                      bottom: widget.paddingBottom ??
+                          (!widget.resizeToAvoidBottomInset && MediaQuery.of(context).viewInsets.bottom > 10
+                              ? MediaQuery.of(context).viewInsets.bottom
+                              : widget.withNavBar
+                                  ? 80.h
+                                  : 24.h),
                     ),
+                    clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
                       color: context.theme.colorScheme.naturalColor700,
                       borderRadius: BorderRadius.only(
@@ -156,7 +158,6 @@ class _WSharedScaffoldState extends State<WSharedScaffold> {
                 ),
               ],
             ),
-
             if (widget.isLoading)
               Container(
                 height: context.height,

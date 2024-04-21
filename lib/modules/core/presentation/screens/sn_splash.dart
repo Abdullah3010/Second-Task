@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:second_task/core/extension/color_extension.dart';
+import 'package:second_task/core/extension/context_extension.dart';
 import 'package:second_task/core/services/routes/routes_names.dart';
+import 'package:second_task/core/widgets/w_app_loader.dart';
 
 class SNSplash extends StatefulWidget {
   const SNSplash({super.key});
@@ -10,25 +13,9 @@ class SNSplash extends StatefulWidget {
 }
 
 class _SNSplashState extends State<SNSplash> with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<double> _animation;
-
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-
-    _animation = Tween<double>(begin: 0.8, end: 1.1).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeInOut,
-      ),
-    );
-
-    _animationController.repeat(reverse: true);
 
     Future.delayed(
       const Duration(seconds: 1),
@@ -43,25 +30,10 @@ class _SNSplashState extends State<SNSplash> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          AnimatedBuilder(
-            animation: _animation,
-            builder: (context, child) {
-              return Transform.scale(
-                scale: _animation.value,
-                child: const Center(child: FlutterLogo()),
-              );
-            },
-          ),
-        ],
+      backgroundColor: context.theme.colorScheme.naturalColor700,
+      body: const Center(
+        child: WAppLoader(),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
   }
 }

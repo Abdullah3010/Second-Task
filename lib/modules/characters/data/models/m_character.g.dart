@@ -23,7 +23,7 @@ class MCharacterAdapter extends TypeAdapter<MCharacter> {
       species: fields[3] as String?,
       gender: fields[4] as String?,
       house: fields[5] as String?,
-      dateOfBirth: fields[6] as DateTime?,
+      dateOfBirth: fields[6] as String?,
       yearOfBirth: fields[7] as String?,
       wizard: fields[8] as bool?,
       ancestry: fields[9] as String?,
